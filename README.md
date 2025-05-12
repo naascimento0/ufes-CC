@@ -5,6 +5,7 @@ Repositório da disciplina de compiladores na UFES
 ## Dependências
 
 Copie o arquivo jar da biblioteca antlr para o diretório tools.
+O link direto de download para a vers ̃ao 4.13.2 é https://www.antlr.org/download/antlr-4.13.2-complete.jar.
 
 ## Compilação
 
