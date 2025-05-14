@@ -25,6 +25,6 @@ Rode o comando para a execução do programa compilado:
 
 Alguns exemplos possuem casos de teste em uma pasta "inputs". Rode-os com o seguinte comando:
 
-`make run inputs/FILE=../nome_do_arquivo.ezl`
+`make run FILE=../inputs/nome_do_arquivo.ezl`
 
 Note que o arquivo deve ser acessado com ../ já que o programa roda a partir do diretório auxiliar lexer.
