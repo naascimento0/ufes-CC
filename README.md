@@ -9,7 +9,7 @@ O link direto de download para a versão 4.13.2 é https://www.antlr.org/downloa
 
 ## Compilação
 
-Antes de compilar, centifique-se de que o Makefile está coerente com a versão do antlr que você está usando (modificando a variável ANTL_PATH).
+Antes de compilar, centifique-se de que o Makefile está coerente com a versão do antlr que você está usando (modificando a variável ANTLR_PATH).
 
 Após isso, rode o comando:
 
