@@ -39,7 +39,7 @@ for file in $INPUT_DIR/*.ezl; do
     if [[ "$MODE" == "lexer" ]]; then
         java -cp $CLASSPATH org.antlr.v4.gui.TestRig $GRAMMAR_PREFIX tokens -tokens "$file" > "$output_file"
     else
-        java -cp $CLASSPATH org.antlr.v4.gui.TestRig $GRAMMAR_PREFIX program "$file" > "$output_file"
+        java -cp $CLASSPATH org.antlr.v4.gui.TestRig $GRAMMAR_PREFIX program "$file" > "$output_file" 2>&1
     fi
 done
 
