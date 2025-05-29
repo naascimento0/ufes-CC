@@ -2,11 +2,10 @@
 JAVAC=javac
 # Comando da JVM
 JAVA=java
-# ROOT é a raiz dos diretórios com todos os roteiros de laboratórios
-YEAR=$(shell pwd | grep -o '20..-.')
-ROOT := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
-# Caminho para o JAR do ANTLR em labs/tools
-ANTLR_PATH=$(ROOT)tools/antlr-4.13.2-complete.jar
+# ROOT aponta para a raiz do repositório, subindo um nível
+ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/..)
+# Caminho para o JAR do ANTLR
+ANTLR_PATH := $(ROOT)/tools/antlr-4.13.2-complete.jar
 # Opção de configuração do CLASSPATH para o ambiente Java
 CLASS_PATH_OPTION=-cp .:$(ANTLR_PATH)
 # Configuração do comando de compilação do ANTLR
@@ -39,7 +38,11 @@ javac:
 
 # Executa o lexer. Comando: $ make run GRAMMAR=subdir/Exemplo01.g FILE=arquivo_de_teste
 run:
-	cd $(GEN_PATH) && $(GRUN) $(GRAMMAR_NAME) tokens -tokens $(FILE)
+ifeq ($(strip $(FILE)),)
+	cd $(GEN_PATH) && $(GRUN) $(GRAMMAR_NAME) tokens -tokens
+else
+	cd $(GEN_PATH) && $(GRUN) $(GRAMMAR_NAME) tokens -tokens ../$(FILE)
+endif
 
 # Remove os arquivos gerados pelo ANTLR
 clean:
