@@ -22,14 +22,14 @@ WRITE   : 'write' ;
 
 ASSIGN : ':=' ;
 EQ     : '=' ;
-PLUS   : '+' ;
+LT     : '<' ;
 MINUS  : '-' ;
-TIMES  : '*' ;
 OVER   : '/' ;
+PLUS   : '+' ;
+SEMI   : ';' ;
+TIMES  : '*' ;
 LPAR   : '(' ;
 RPAR   : ')' ;
-SEMI   : ';' ;
-LT     : '<' ;
 
 fragment DIGITS : [0-9]+ ;
 
