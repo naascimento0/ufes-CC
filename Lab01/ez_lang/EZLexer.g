@@ -1,4 +1,4 @@
-lexer grammar Ez_Lang;
+lexer grammar EZLexer;
 
 WS : [ \t\n]+ -> skip ;
 
