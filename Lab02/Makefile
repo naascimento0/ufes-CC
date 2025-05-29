@@ -44,9 +44,9 @@ javac:
 
 run:
 ifeq ($(strip $(FILE)),)
-	cd $(GEN_PATH) && $(GRUN) $(GRAMMAR_NAME) begin -tokens
+	cd $(GEN_PATH) && $(GRUN) $(GRAMMAR_NAME) begin $(OPT) -tokens
 else
-	cd $(GEN_PATH) && $(GRUN) $(GRAMMAR_NAME) begin -tokens ../$(FILE)
+	cd $(GEN_PATH) && $(GRUN) $(GRAMMAR_NAME) begin $(OPT) -tokens ../$(FILE)
 endif
 
 # Limpa os arquivos gerados

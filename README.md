@@ -32,3 +32,10 @@ Alguns exemplos possuem casos de teste em uma pasta "inputs". Rode-os com o segu
 `make run GRAMMAR=<caminho_da_linguagem>.g FILE=inputs/<nome_do_input>.ezl`
 
 ou outro caminho qualquer para o input desejado.
+
+## Parse tree
+
+Para a análise sintática, é possível alterar o atributo OPT, e enviar as seguintes opções:
+
+`OPT=-tree`
+`OPT=-gui`
