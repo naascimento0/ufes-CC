@@ -1,7 +1,7 @@
 grammar Exemplo01;
 
 begin:
-  expr
+  expr+
 ;
 
 expr:
