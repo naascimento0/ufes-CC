@@ -2,41 +2,46 @@ lexer grammar EZLexer;
 
 WS : [ \t\n]+ -> skip ;
 
-KW_BEGIN   : 'begin' ;
-KW_BOOL    : 'bool' ;
-KW_ELSE    : 'else' ;
-KW_END     : 'end' ;
-KW_FALSE   : 'false' ;
-KW_IF      : 'if' ;
-KW_INT     : 'int' ;
-KW_PROGRAM : 'program' ;
-KW_READ    : 'read' ;
-KW_REAL    : 'real' ;
-KW_REPEAT  : 'repeat' ;
-KW_STRING  : 'string' ;
-KW_THEN    : 'then' ;
-KW_TRUE    : 'true' ;
-KW_UNTIL   : 'until' ;
-KW_VAR     : 'var' ;
-KW_WRITE   : 'write' ;
+BEGIN   : 'begin' ;
+BOOL    : 'bool' ;
+ELSE    : 'else' ;
+END     : 'end' ;
+FALSE   : 'false' ;
+IF      : 'if' ;
+INT     : 'int' ;
+PROGRAM : 'program' ;
+READ    : 'read' ;
+REAL    : 'real' ;
+REPEAT  : 'repeat' ;
+STRING  : 'string' ;
+THEN    : 'then' ;
+TRUE    : 'true' ;
+UNTIL   : 'until' ;
+VAR     : 'var' ;
+WRITE   : 'write' ;
 
-ASSIGN  : ':=' ;
-EQUALS  : '=' ;
-PLUS    : '+' ;
-MINUS   : '-' ;
-TIMES   : '*' ;
-OVER    : '/' ;
-PAR_INT : '(' ;
-PAR_END : ')' ;
-COMMA   : ';' ;
+ASSIGN : ':=' ;
+EQ     : '=' ;
+PLUS   : '+' ;
+MINUS  : '-' ;
+TIMES  : '*' ;
+OVER   : '/' ;
+LPAR   : '(' ;
+RPAR   : ')' ;
+SEMI   : ';' ;
+LT     : '<' ;
 
 fragment DIGITS : [0-9]+ ;
 
-POS_INT : DIGITS ;
-NEG_INT : '-' DIGITS;
-POS_REAL : DIGITS '.' DIGITS ;
+INT_VAL  : POS_INT | NEG_INT ;
+REAL_VAL : POS_REAL | NEG_REAL ;
+NEG_INT  : '-' DIGITS ;
+POS_INT  : DIGITS ;
 NEG_REAL : '-' DIGITS '.' DIGITS ;
+POS_REAL : DIGITS '.' DIGITS ;
 
-STRING  : '"' ~["]* '"' ;
+STR_VAL : '"' ~["]* '"' ;
 ID      : [a-zA-Z]+ ;
-COMMENT : '{' ~[}]* '}' ;
+COMMENT : '{' ~[}]* '}' -> skip ;
+
+UNKNOWN : . ;

@@ -3,3 +3,4 @@
 *.interp
 *.tokens
 *.java
+generated/
