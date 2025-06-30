@@ -2,8 +2,11 @@
 JAVAC = javac
 JAVA = java
 
+# ROOT aponta para a raiz do repositório, subindo um nível
+ROOT := $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/..)
+
 # Caminho para o JAR do ANTLR
-ANTLR_JAR = ../tools/antlr-4.13.2-complete.jar
+ANTLR_JAR := $(ROOT)/tools/antlr-4.13.2-complete.jar
 
 # Classpath com ANTLR incluso
 CLASSPATH = .:$(ANTLR_JAR)
@@ -36,9 +39,9 @@ javac:
 # Exemplo de uso: make run FILE=exemplo.ez
 run:
 ifeq ($(strip $(FILE)),)
-	cd $(OUT_DIR) && $(JAVA) -cp $(CLASSPATH) org.antlr.v4.gui.TestRig $(GRAMMAR_PREFIX) program
+	cd $(OUT_DIR) && $(JAVA) -cp $(CLASSPATH) org.antlr.v4.gui.TestRig $(GRAMMAR_PREFIX) program $(OPT)
 else
-	cd $(OUT_DIR) && $(JAVA) -cp $(CLASSPATH) org.antlr.v4.gui.TestRig $(GRAMMAR_PREFIX) program ../$(FILE)
+	cd $(OUT_DIR) && $(JAVA) -cp $(CLASSPATH) org.antlr.v4.gui.TestRig $(GRAMMAR_PREFIX) program $(OPT) ../$(FILE)
 endif
 
 # Limpa os arquivos gerados
